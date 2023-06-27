@@ -2,6 +2,8 @@ package main.algorithm.`str-array`
 
 /**
  * 对角线遍历
+ * 定义变量 row 和 col 表示当前遍历到的行和列，初始值为 0
+ * 定义变量 d 表示遍历方向，初始值为 1，表示向右上方遍历
  */
 fun findDiagonalOrder(mat: Array<IntArray>): IntArray {
     if (mat.isEmpty() || mat[0].isEmpty()) {
