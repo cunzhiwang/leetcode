@@ -2,27 +2,25 @@ package main.algorithm.`str-array`
 
 /**
  * 旋转矩阵
+ * [i][j]转换后为【j】【n-i-1】,其实就是把第一行转为倒数第一列，第二行转为倒数第二列
  */
 fun rotate(matrix: Array<IntArray>) {
     val n = matrix.size
+    val afterMatrix :Array<IntArray> = Array(n) { IntArray(n) { 0 } }
 
-    // 沿着主对角线翻转矩阵
-    for (i in 0 until n) {
-        for (j in i + 1 until n) {
-            val temp = matrix[i][j]
-            matrix[i][j] = matrix[j][i]
-            matrix[j][i] = temp
+    // 转换
+    for (i in matrix.indices) {
+        for (j in matrix[0].indices) {
+            afterMatrix[j][n-i-1] = matrix[i][j]
         }
     }
 
-    // 左右翻转矩阵
-    for (i in 0 until n) {
-        for (j in 0 until n / 2) {
-            val temp = matrix[i][j]
-            matrix[i][j] = matrix[i][n - j - 1]
-            matrix[i][n - j - 1] = temp
+    for (i in matrix.indices) {
+        for (j in matrix[0].indices) {
+            matrix[i][j] = afterMatrix[i][j]
         }
     }
+
 }
 
 fun main() {
