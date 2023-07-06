@@ -19,19 +19,9 @@ fun findDiagonalOrder(mat: Array<IntArray>): IntArray {
 
     for (i in result.indices) {
         result[i] = mat[row][col]
-        // 左上角遍历
         row -= d
         col += d
 
-
-        if (row < 0) {
-            row = 0
-            d = -d
-        }
-        if (col < 0) {
-            col = 0
-            d = -d
-        }
         // 判断是否超出边界
         if (row >= m) {
             row = m - 1
@@ -41,6 +31,14 @@ fun findDiagonalOrder(mat: Array<IntArray>): IntArray {
         if (col >= n) {
             col = n - 1
             row += 2
+            d = -d
+        }
+        if (row < 0) {
+            row = 0
+            d = -d
+        }
+        if (col < 0) {
+            col = 0
             d = -d
         }
     }
