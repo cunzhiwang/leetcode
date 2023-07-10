@@ -8,9 +8,19 @@ package main.algorithm.`str-array`.string
 fun reverseWords(s: String): String {
     // 去掉左右空格
     var trim = s.trim()
-    return ""
+    var splitStr: List<String> = trim.split(" ")
+
+    var stringBuilder = StringBuilder()
+    for (i in splitStr.reversed()){
+        if(" " != i&&""!=i) {
+            stringBuilder.append(i.trim())
+            stringBuilder.append(" ")
+        }
+    }
+        return stringBuilder.toString().trim()
 }
+
 fun main() {
-    reverseWords("")
-    println(" hello word  ".trim())
+    println(reverseWords("a good   example"))
+
 }
