@@ -7,10 +7,10 @@ package main.algorithm.`str-array`.string
  */
 fun reverseWords(s: String): String {
     // 去掉左右空格
-    var trim = s.trim()
-    var splitStr: List<String> = trim.split(" ")
+    val trim = s.trim()
+    val splitStr: List<String> = trim.split(" ")
 
-    var stringBuilder = StringBuilder()
+    val stringBuilder = StringBuilder()
     for (i in splitStr.reversed()){
         if(" " != i&&""!=i) {
             stringBuilder.append(i.trim())
